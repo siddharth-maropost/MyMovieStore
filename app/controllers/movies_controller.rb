@@ -19,7 +19,7 @@ class MoviesController < ApplicationController
 
   private
   def allowed_params
-    params.require(:movie).permit(:title, :genre, :plot, :rating, :web)
+    params.require(:movie).permit(:title, :genre, :plot, :rating, :web, :image)
   end
   def set_id
     @movies = Movie.find(params[:id])
