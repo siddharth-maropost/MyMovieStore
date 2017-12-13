@@ -4,13 +4,16 @@ class MoviesController < ApplicationController
   def show
   end
 
+  def index
+  end
+
   def new
     @movie = Movie.new
   end
   def create
     @movie = Movie.new(allowed_params)
     if @movie.save
-      redirect_to "show"
+      redirect_to @movie
     else
       render 'new'
     end
@@ -19,7 +22,7 @@ class MoviesController < ApplicationController
 
   private
   def allowed_params
-    params.require(:movie).permit(:title, :genre, :plot, :rating, :web, :image)
+    params.require(:movie).permit(:title, :genre, :plot, :rating, :web, :image, :year, :cast)
   end
   def set_id
     @movies = Movie.find(params[:id])

@@ -1,5 +1,5 @@
 <%= form_for :movie ,url: movies_path do |f| %>
-<div class="container-fluid"> 
+<div class="container-fluid">
   <div class = "row">
     <% if @movie.errors.any? %>
       <div id="error_explanation">
@@ -52,7 +52,7 @@
               </div>
               <div class = "row">
                 <%= f.label :year %><br>
-                <%= f.text_field :year, class: "form-control" %>
+                <%= f.date_field :year,as: :year, class: "form-control" %>
               </div>
               <div class = "row">
                 <%= f.label :cast %><br>

@@ -1,38 +1,38 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
+<div class="container">
+
+
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-sm-6">
 					<%= image_tag @movies.image.url %>
 				</div>
-				<div class="col-md-8">
-					<div class="row">
-						<div class="col-md-12">
+				<div class="col-sm-6">
+
 							<h3>
+								<%=label_tag 'title: '%>
 								<%= @movies.title%>
 							</h3>
-							<div class="row">
-								<div class="col-md-6">
-									<p>
-                    <%=@movies.genre%>
-									</p>
-                  <p>
-                    <%=@movies.plot%>
-                  </p>
-								</div>
-								<div class="col-md-6">
-									<p>
-                    <%=@movies.rating%>
-									</p>
-                  <p>
-                    <%=@movies.web%>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
+							<p>
+								<span class="glyphicon glyphicon-star-empty glyphicon">
+								<%=@movies.rating%></span>
+							</p>
+							<p>
+								<%=label_tag 'year: '%>
+                <%=@movies.year%>
+							</p>
+              <p>
+								<%=label_tag 'genre: '%>
+                <%=@movies.genre%>
+							</p>
+              <p>
+								<%=label_tag 'plot: '%>
+                <%=@movies.plot%>
+              </p>
+              <p>
+								<%=label_tag 'website: '%>
+                <%=@movies.web%>
+							</p>
+
 				</div>
-			</div>
+
 		</div>
 	</div>
-</div>
