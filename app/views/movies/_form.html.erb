@@ -1,14 +1,14 @@
-<%= form_for :movie ,url: movies_path do |f| %>
-<div class="container-fluid">
+<%= form_for @movies do |f| %>
+<div class="container">
   <div class = "row">
-    <% if @movie.errors.any? %>
+    <% if @movies.errors.any? %>
       <div id="error_explanation">
         <h2>
-          <%= pluralize(@movie.errors.count, "error") %> prohibited
+          <%= pluralize(@movies.errors.count, "error") %> prohibited
           this article from being saved:
         </h2>
         <ul>
-          <% @movie.errors.full_messages.each do |msg| %>
+          <% @movies.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
           <% end %>
         </ul>

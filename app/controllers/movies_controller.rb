@@ -6,6 +6,9 @@ class MoviesController < ApplicationController
 
   def index
   end
+  def edit
+    
+  end
 
   def new
     @movie = Movie.new
