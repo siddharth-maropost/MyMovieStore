@@ -1,0 +1,31 @@
+
+  <div class="col-sm-6">
+    <%= image_tag @movies.image.url %>
+  </div>
+  <div class="col-sm-6">
+
+        <h3>
+          <%=label_tag 'title: '%>
+          <%= @movies.title%>
+        </h3>
+        <p>
+          <span class="glyphicon glyphicon-star-empty glyphicon">
+          <%=@movies.rating%></span>
+        </p>
+        <p>
+          <%=label_tag 'year: '%>
+          <%=@movies.year%>
+        </p>
+        <p>
+          <%=label_tag 'genre: '%>
+          <%=@movies.genre%>
+        </p>
+        <p>
+          <%=label_tag 'plot: '%>
+          <%=@movies.plot%>
+        </p>
+        <p>
+          <%=label_tag 'website: '%>
+          <%=@movies.web%>
+        </p>
+  </div>

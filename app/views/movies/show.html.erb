@@ -1,53 +1,21 @@
 <div class="container">
-
-
-			<div class="row">
-				<div class="col-sm-6">
-					<%= image_tag @movies.image.url %>
-				</div>
-				<div class="col-sm-6">
-
-							<h3>
-								<%=label_tag 'title: '%>
-								<%= @movies.title%>
-							</h3>
-							<p>
-								<span class="glyphicon glyphicon-star-empty glyphicon">
-								<%=@movies.rating%></span>
-							</p>
-							<p>
-								<%=label_tag 'year: '%>
-                <%=@movies.year%>
-							</p>
-              <p>
-								<%=label_tag 'genre: '%>
-                <%=@movies.genre%>
-							</p>
-              <p>
-								<%=label_tag 'plot: '%>
-                <%=@movies.plot%>
-              </p>
-              <p>
-								<%=label_tag 'website: '%>
-                <%=@movies.web%>
-							</p>
-				</div>
-		</div>
-
-
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="row">
-				<div class="col-sm-6">
-					<h1>comments</h1>
-					<textarea rows="4" cols="50"></textarea>
-					<button type="button" class="btn btn-primary btn-default active">
-						Default
-					</button>
-				</div>
-				<div class="col-sm-6">
-				</div>
-			</div>
-		</div>
-	</div>
+<div class ="row">
+	<%=render 'movie_detail'%>
+</div>
+<br><br><br>
+<div class="row">
+  <div class="col-sm-6">
+		<h1>comments</h1>
+    <%=render 'movie_comment'%>
+  </div>
+  <div class="col-sm-6">
+    <ul class="list-group">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item">Porta ac consectetur ac</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+  </div>
+</div>
 </div>
