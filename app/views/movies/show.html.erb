@@ -1,6 +1,6 @@
 <div class="container">
 <div class ="row">
-	<%=render 'movie_detail'%>
+  <%=render partial: "movie_detail", locals: {movie: @movies}%>
 </div>
 <br><br><br>
 <div class="row">
@@ -10,11 +10,24 @@
   </div>
   <div class="col-sm-6">
     <ul class="list-group">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Morbi leo risus</li>
-      <li class="list-group-item">Porta ac consectetur ac</li>
-      <li class="list-group-item">Vestibulum at eros</li>
+      <h1>Top Rated of same genre </h1>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-6"><strong>TITLE</strong></div>
+          <div class="col-sm-6"><strong>GENRE</strong></div>
+        </div>
+      </li>
+      <%@movies_list.each do |movie|%>
+      <%if movie.genre == @movies.genre%>
+      <li class="list-group-item">
+        <div class="row">
+          <div class="col-sm-6"><%=movie.title%></div>
+          <div class="col-sm-6"><%=movie.genre%></div>
+
+        </div>
+      </li>
+      <%end%>
+      <%end%>
     </ul>
   </div>
 </div>

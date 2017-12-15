@@ -2,16 +2,20 @@ class MoviesController < ApplicationController
   before_action :set_id, except:[:new,:create,:index]
 
   def show
+    @movies_list = Movie.all.order('rating desc')
   end
 
   def index
+    @movies = Movie.all.first(3)
+    @movies_toprated = Movie.all.order('rating desc').limit(6)
+    @movies_topviewed = Movie.all.order('rating asc').limit(6)
   end
   def edit
-    
+
   end
 
   def new
-    @movie = Movie.new
+    @movies = Movie.new
   end
   def create
     @movie = Movie.new(allowed_params)

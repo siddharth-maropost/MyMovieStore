@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="col-md-12">
+
+      <ul class="horizontal-slide">
+        <% movies.each do |movie|%>
+        <li class="col-sm-2">
+          <a href="<%=movie_path(movie.id)%>">
+            <img class="thumbnail" src="<%=movie.image_url%>"/>
+          </a>
+        </li>
+        <%end%>
+
+        <li class="col-md-1"><a href = "akdhfa">browse more</a></li>
+
+      </ul>
+  </div>
+</div>

@@ -15,8 +15,14 @@ ul.horizontal-slide {
 ul.horizontal-slide li[class*="col"] {
     display: inline-block;
     float: none;
+
 }
 
 ul.horizontal-slide li[class*="col"]:first-child {
     margin-left: 0;
+
+}
+
+.thumbnail {
+  max-height: 250px;
 }

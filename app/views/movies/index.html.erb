@@ -10,9 +10,9 @@
 					<li data-slide-to="2" data-target="#carousel-917441">
 					</li>
 				</ol>
-				<div class="carousel-inner">
-					<div class="item active text-center">
-						<img alt="Carousel Bootstrap First" src="http://lorempixel.com/output/sports-q-c-1600-500-1.jpg" />
+				<div class="carousel-inner"  >
+					<div class="item active ">
+						<img alt="Carousel Bootstrap First" src="<%=Movie.first.image_url%>" style="margin:0 auto;max-height: 500px;"/>
 						<div class="carousel-caption">
 							<h4>
 								First Thumbnail label
@@ -22,8 +22,8 @@
 							</p>
 						</div>
 					</div>
-					<div class="item">
-						<img alt="Carousel Bootstrap Second" src="http://lorempixel.com/output/sports-q-c-1600-500-2.jpg" />
+					<div class="item" >
+						<img alt="Carousel Bootstrap Second" src="<%=Movie.second.image_url%>" style="margin:0 auto;max-height: 500px;"/>
 						<div class="carousel-caption">
 							<h4>
 								Second Thumbnail label
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 					<div class="item">
-						<img alt="Carousel Bootstrap Third" src="http://lorempixel.com/output/sports-q-c-1600-500-3.jpg" />
+						<img alt="Carousel Bootstrap Third" src="<%=Movie.last.image_url%>" style="margin:0 auto; max-height: 500px;"/>
 						<div class="carousel-caption">
 							<h4>
 								Third Thumbnail label
@@ -49,45 +49,22 @@
 		</div>
 	</div>
 <br><br><br>
-<div class= "row">
+
 	<label>Highly rated</label>
-</div>
+
 <br><br>
-	<div class="row">
-			<div class="col-md-12">
-				<ul class="horizontal-slide">
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-					<li class="col-md-1"><a href = "akdhfa">browse more</a></li>
-				</ul>
-		</div>
-	</div>
+	<%=render partial: 'index_hor_scroll', locals: {movies: @movies_toprated} %>
 
 	<br><br><br>
-	<div class= "row">
-		<label>upcomming</label>
-	</div>
-	<br><br>
-		<div class="row">
-				<div class="col-md-12">
-					<ul class="horizontal-slide">
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-2"><img class="thumbnail" src="http://placehold.it/100x100"/></li>
-						<li class="col-md-1"><a href = "akdhfa">browse more</a></li>
-					</ul>
 
-			</div>
-		</div>
+		<label>Most viewed</label>
+
+	<br><br>
+		<%=render partial: 'index_hor_scroll', locals: {movies: @movies_topviewed} %>
+
+
+
+
 
 
 
