@@ -53,14 +53,14 @@
 	<label>Top rated</label>
 
 <br><br>
-	<%=render partial: 'index_hor_scroll', locals: {movies: @movies_toprated} %>
+	<%=render partial: 'index_hor_scroll', locals: {movies: @movies_toprated, view: "by_rating"} %>
 
 	<br><br><br>
 
 		<label>Most viewed</label>
 
 	<br><br>
-		<%=render partial: 'index_hor_scroll', locals: {movies: @movies_topviewed} %>
+		<%=render partial: 'index_hor_scroll', locals: {movies: @movies_topviewed, view: "by_views"} %>
 
 
 

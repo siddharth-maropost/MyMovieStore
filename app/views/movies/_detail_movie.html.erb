@@ -1,0 +1,10 @@
+<div class="row">
+  <%movies.each do |movie|%>
+  <div class="col-md-3">
+    <a href="<%=movie_path(movie.id)%>">
+      <img class="thumbnail" src="<%=movie.image_url%>"/>
+      <p><strong style= "font-style: italic;"><%=movie.title%></strong></p>
+    </a>
+  </div>
+  <%end%>
+</div>
