@@ -46,13 +46,20 @@
       <%= text_field_tag :search, params[:search], placeholder: "Search Movies", class: "form-group form-control" %>
       <%= submit_tag "Search", class: "btn btn-default"%>
       <% end %>
-      <% if @posts.present? %>
-        <%= render @posts %>
-      <% else %>
-        <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-      <% end %>
 
-
+      <ul class="nav navbar-nav pull-right">
+						<li class="active">
+              <p class="navbar-text pull-right">
+                <% if user_signed_in? %>
+                  Logged in as <strong><%= current_user.email %></strong>.
+                  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+                  <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+                <% else %>
+                  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %> |
+                  <%= link_to "Login", new_user_session_path, :class => 'navbar-link' %>
+                <% end %>
+						</li>
+          </ul>
     </div>
 
   </nav>

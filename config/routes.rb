@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :movies do
 
      collection do
         get "detail" , to: "movies#detail"
-
     end
   end
-
-
-
   root to: "home#index"
 
 
