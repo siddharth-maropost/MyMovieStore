@@ -59,7 +59,7 @@
 
           <div class = "col-sm-6 pull-left">
             <%if @movies.id == comment.movie_id %>
-            <h5>  <%=User.find(comment.user_id).email%></h5>
+            <h5>  <strong><%=User.find(comment.user_id).name%></strong></h5>
           </div>
             <div class= "col-sm-6"><%=comment.body%><hr></div>
             <%end%>

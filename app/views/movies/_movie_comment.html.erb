@@ -1,4 +1,5 @@
 <div class="row">
+  <img src="<%=User.last.image_url%>"/>
 <%= form_for([@movies, @movies.comments.build]) do |f| %>
     <%= f.text_area :body, class: "form-control" %>
   </p>
