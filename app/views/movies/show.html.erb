@@ -4,9 +4,14 @@
 </div>
 <br><br><br>
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 "style="background-color: ghostwhite;">
 		<h1>comments</h1>
-    <%=render 'movie_comment'%>
+    <%=render partial: "comments/show", locals: {movie: @movies}%>
+    <div class = "pull-right">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  More Comments
+</button>
+    </div>
   </div>
   <div class="col-sm-6">
     <ul class="list-group">
@@ -31,4 +36,45 @@
     </ul>
   </div>
 </div>
+<div class = "row col-sm-6">
+      <%=render 'movie_comment'%>
+
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">All comments</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 0px;">
+        <% @comments.each do |comment|%>
+
+          <div class = "col-sm-6">
+            <i class="glyphicon glyphicon-user"></i><hr>
+          </div>
+
+          <div class = "col-sm-6 pull-left">
+            <%if @movies.id == comment.movie_id %>
+            <h5>  <%=User.find(comment.user_id).email%></h5>
+          </div>
+            <div class= "col-sm-6"><%=comment.body%><hr></div>
+            <%end%>
+
+
+
+        <%end%>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 </div>

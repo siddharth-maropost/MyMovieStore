@@ -1,0 +1,17 @@
+
+  <% @limited_comments.each do |comment|%>
+
+    <div class = "col-sm-6">
+      <i class="glyphicon glyphicon-user"></i><hr>
+    </div>
+
+    <div class = "col-sm-6 pull-left">
+      <%if movie.id == comment.movie_id %>
+      <h5>  <%=User.find(comment.user_id).email%></h5>
+    </div>
+      <div class= "col-sm-6"><%=comment.body%><hr></div>
+      <%end%>
+
+
+
+  <%end%>

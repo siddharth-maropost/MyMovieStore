@@ -1,6 +1,9 @@
 <div class="row">
-        <textarea rows="4" cols="50"></textarea>
-        <button type="button" class="btn btn-primary btn-default active">
-          Default
-        </button>
+<%= form_for([@movies, @movies.comments.build]) do |f| %>
+    <%= f.text_area :body, class: "form-control" %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 </div>

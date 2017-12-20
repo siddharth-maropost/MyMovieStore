@@ -4,7 +4,9 @@ class MoviesController < ApplicationController
   before_action :get_topviewed, only:[:index, :detail]
 
   def show
-    @movies_list = Movie.all.order('rating desc')
+    @movies_list = Movie.all.order('rating desc').limit(9)
+    @comments = Comment.all
+    @limited_comments = Comment.all.order('id desc').limit(4)
   end
 
   def index
