@@ -6,7 +6,7 @@ class MoviesController < ApplicationController
   def show
     @movies_list = Movie.all.order('rating desc').limit(9)
     @comments = Comment.all
-    @limited_comments = Comment.all.order('id desc').limit(4)
+    @limited_comments = @movies.comments.limit(3)
   end
 
   def index

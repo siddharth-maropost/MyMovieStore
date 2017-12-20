@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
 <div class ="row">
   <%=render partial: "movie_detail", locals: {movie: @movies}%>
 </div>
@@ -77,4 +77,90 @@
 
 
 
-</div>
+</div> -->
+
+
+
+  <div class="row">
+    <div class="col-sm-12">
+    <%=render partial: "movie_detail", locals: {movie: @movies}%>
+  </div>
+  </div>
+
+
+
+
+  <div class="row">
+    <div class="col-md-12">
+        <div class="col-md-6">
+          <h1>comments</h1>
+          <%=render partial: "comments/show", locals: {movie: @movies}%>
+<br>
+            <%if @movies.comments.count > 3 %>
+            <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target="#exampleModal">
+              More Comments
+           </button>
+           <%else%>
+
+           <%end%>
+<br>
+<br><br><br><br>
+          <%=render 'movie_comment'%>
+        </div>
+
+        <div class="col-md-6">
+
+          <ul class="list-group">
+            <h1>Top Rated of same genre </h1>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-sm-6"><strong>TITLE</strong></div>
+                <div class="col-sm-6"><strong>GENRE</strong></div>
+              </div>
+            </li>
+            <%@movies_list.each do |movie|%>
+            <%if movie.genre == @movies.genre%>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-sm-6"><%=movie.title%></div>
+                <div class="col-sm-6"><%=movie.genre%></div>
+
+              </div>
+            </li>
+            <%end%>
+            <%end%>
+          </ul>
+        </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">All comments</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" style="padding: 0px;">
+          <% @comments.each do |comment|%>
+          <div class="row">
+            <div class="col-sm-12">
+              <%if @movies.id == comment.movie_id %>
+            <div class = "col-sm-6">
+              <h5>  <strong><%=User.find(comment.user_id).name%></strong></h5>
+            </div>
+              <div class= "col-sm-6"><div style ="max-height:50px;"><%=comment.body%></div><hr></div>
+              <%end%>
+            </div>
+          </div>
+
+          <%end%>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

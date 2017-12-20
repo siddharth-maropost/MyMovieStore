@@ -1,10 +1,13 @@
-<div class="row">
-  <img src="<%=User.last.image_url%>"/>
-<%= form_for([@movies, @movies.comments.build]) do |f| %>
-    <%= f.text_area :body, class: "form-control" %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+<div class = "row col-sm-12">
+  <div class="col-sm-2 "><img class ="thumbnail pull-right" style="max-width: 52px;" src="<%=User.last.image_url%>"/></div>
+  <div class="col-sm-10">
+    <%= form_for([@movies, @movies.comments.build]) do |f| %>
+      <%= f.text_area :body, class: "form-control" %>
+    </p>
+  </span>
+    <p>
+      <%= f.submit class: "btn btn-sm btn-success"%>
+    </p>
+  <% end %>
+</div>
 </div>

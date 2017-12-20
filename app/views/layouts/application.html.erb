@@ -12,15 +12,13 @@
 
   </head>
 
-  <body>
+  <body class="container">
+          <%=render 'layouts/header'%>
+          <div class="notice" style="background-color: mistyrose;"><%= notice %></div>
+          <div class="alert"><%= alert %></div>
 
-    <div class="container">
-        <%=render 'layouts/header'%>
-    <div class="notice container" style="background-color: mistyrose;"><%= notice %></div>
-    <div class="alert"><%= alert %></div>
-
-    <%= yield %>
-    <%=render 'layouts/footer'%>
-  </div>
+          <%= yield %>
+          <%=render 'layouts/footer'%>
   </body>
+
 </html>
