@@ -1,7 +1,22 @@
 <div class = "row col-sm-12">
+  <br><br>
   <div class="col-sm-2 "><img class ="thumbnail pull-right" style="max-width: 52px;" src="<%=User.last.image_url%>"/></div>
   <div class="col-sm-10">
-    <%= form_for([@movies, @movies.comments.build]) do |f| %>
+
+    <%= form_for([@movies,@movies.comments.build]) do |f| %>
+
+          <% if @movies.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@movies.errors.count, "error") %> prohibited this commment from being saved:</h2>
+
+              <ul>
+              <% @movies.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+             </ul>
+          </div>
+          <% end %>
+
       <%= f.text_area :body, class: "form-control" %>
     </p>
   </span>

@@ -93,6 +93,7 @@
   <div class="row">
     <div class="col-md-12">
         <div class="col-md-6">
+          <div class="col-md-12 " style="border: inset;">
           <h1>comments</h1>
           <%=render partial: "comments/show", locals: {movie: @movies}%>
 <br>
@@ -103,6 +104,7 @@
            <%else%>
 
            <%end%>
+         </div>
 <br>
 <br><br><br><br>
           <%=render 'movie_comment'%>
@@ -148,10 +150,10 @@
           <div class="row">
             <div class="col-sm-12">
               <%if @movies.id == comment.movie_id %>
-            <div class = "col-sm-6">
-              <h5>  <strong><%=User.find(comment.user_id).name%></strong></h5>
+            <div class = "col-sm-3">
+              <h5>  <strong><%=User.find(comment.user_id).name.titleize%></strong></h5><hr>
             </div>
-              <div class= "col-sm-6"><div style ="max-height:50px;"><%=comment.body%></div><hr></div>
+              <div class= "col-sm-9"><div style ="max-height:50px;"><%=comment.body%></div><hr></div>
               <%end%>
             </div>
           </div>

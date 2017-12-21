@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   #association
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :user, through: :comments
 
 

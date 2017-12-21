@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to movie_path(params[:movie_id]),notice: "comennt added succesfully"
     else
+      redirect_to movie_path(params[:movie_id]),alert: "comment cannot be empty !"
     end
   end
   def show
