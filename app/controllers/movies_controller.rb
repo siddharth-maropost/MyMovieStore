@@ -41,20 +41,26 @@ class MoviesController < ApplicationController
   def create
 
     if params[:view] == "automatic"
+      debugger
+      @mv = OtherServiceCall.new.api_call(params[:movie][:title])
+      if @mv == true
+        redirect_to  'http://marohost:3000/admin/movies', notice: "movie successfully saved"
+      else
+        redirect_to new_admin_movie_path(view: params[:view]), alert: "movie match failed, please verify"
+      end
     else
       @movie = Movie.new(allowed_params)
 
       if @movie.save
         redirect_to admin_movie_path(@movie),notice: "movie Successfully Saved"
       else
-        redirect_to new_admin_movie_path
+        redirect_to new_admin_movie_path, alert: "make sure you have entered all the details"
       end
     end
   end
 
   private
   def allowed_params
-    debugger
     params.require(:movie).permit(:title, :genre, :plot, :rating, :web, :image, :year, :cast)
   end
 
