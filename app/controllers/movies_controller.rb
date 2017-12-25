@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-  before_action :set_id, except:[:new, :create, :index, :detail]
+  before_action :authenticate_admin_user!,only: [:create]
+  before_action :set_id, except:[:index, :detail, :create]
   before_action :get_toprated, only:[:index, :detail]
   before_action :get_topviewed, only:[:index, :detail]
 
@@ -34,21 +35,26 @@ class MoviesController < ApplicationController
 
   end
 
-  def new
-    @movies = Movie.new
-  end
+  # def new
+  #   @movies = Movie.new
+  # end
   def create
-    @movie = Movie.new(allowed_params)
-    if @movie.save
-      redirect_to @movie
-    else
-      render 'new'
-    end
 
+    if params[:view] == "automatic"
+    else
+      @movie = Movie.new(allowed_params)
+
+      if @movie.save
+        redirect_to admin_movie_path(@movie),notice: "movie Successfully Saved"
+      else
+        redirect_to new_admin_movie_path
+      end
+    end
   end
 
   private
   def allowed_params
+    debugger
     params.require(:movie).permit(:title, :genre, :plot, :rating, :web, :image, :year, :cast)
   end
 

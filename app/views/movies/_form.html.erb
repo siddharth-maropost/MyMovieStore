@@ -1,3 +1,4 @@
+<%@movies = movies%>
 <%= form_for @movies do |f| %>
 <div class="container">
   <div class = "row">
@@ -19,15 +20,20 @@
 		<div class="col-sm-12">
 			<div class="row">
 				<div class="col-sm-6">
-          <%= f.label :image %><br>
-					<p><%= f.file_field :image, class: "form-control " %></p>
+          <%= f.label :title %><br>
+          <%= f.text_field :title, class: "form-control"%>
 				</div>
+        <% if view == "automatic" %>
+
+        <%= hidden_field_tag 'view', view %>
+        <%else%>
+        <%= hidden_field_tag 'view', view %>
 				<div class="col-sm-6">
 					<div class="row">
 						<div class="col-sm-6">
               <div class = "row">
-                <%= f.label :title %><br>
-                <%= f.text_field :title, class: "form-control"%>
+                <%= f.label :image %><br>
+      					<p><%= f.file_field :image, class: "form-control " %></p>
               </div>
               <div class = "row">
                 <%= f.label :genre %><br>
@@ -58,6 +64,7 @@
                 <%= f.label :cast %><br>
                 <%= f.text_area :cast, class: "form-control" %>
               </div>
+              <%end%>
               <br>
               <div class = "row text-center">
                 <%= f.submit class: "btn btn-success"%>
