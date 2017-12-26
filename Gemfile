@@ -11,7 +11,7 @@ gem 'carrierwave', '~> 0.11.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'mysql2'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'figaro'
@@ -46,6 +46,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'mysql2'
 end
 
 group :development do
