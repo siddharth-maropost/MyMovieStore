@@ -1,4 +1,14 @@
 
+
+default: &default1
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool:  <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: marohost
+
+
 default: &default
   adapter: mysql2
   encoding: utf8
@@ -37,7 +47,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  <<: *default1
   database: moviestore_production
   username: moviestore
   password: <%= ENV['MOVIE-STORE_DATABASE_PASSWORD'] %>
