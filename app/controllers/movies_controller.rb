@@ -44,7 +44,7 @@ class MoviesController < ApplicationController
       debugger
       @mv = OtherServiceCall.new.api_call(params[:movie][:title])
       if @mv == true
-        redirect_to  'http://marohost:3000/admin/movies', notice: "movie successfully saved"
+        redirect_to  "#{ Rails.application.secrets.url}/admin/movies", notice: "movie successfully saved"
       else
         redirect_to new_admin_movie_path(view: params[:view]), alert: "movie match failed, please verify"
       end
