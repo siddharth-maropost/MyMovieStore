@@ -41,7 +41,6 @@ class MoviesController < ApplicationController
   def create
 
     if params[:view] == "automatic"
-      debugger
       @mv = OtherServiceCall.new.api_call(params[:movie][:title])
       if @mv == true
         redirect_to  "#{ Rails.application.secrets.url}/admin/movies", notice: "movie successfully saved"

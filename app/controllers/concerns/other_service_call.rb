@@ -1,7 +1,6 @@
 class OtherServiceCall
   def api_call(title)
     @title = title
-    debugger
     uri = URI("http://www.omdbapi.com/?t=#{@title}&apikey=c45185be")
     a = Net::HTTP.get(uri)
     b= JSON.parse(a)
