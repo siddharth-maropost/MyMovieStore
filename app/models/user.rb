@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   validates_presence_of :name
 
+
   after_create :send_admin_mail
   def send_admin_mail
     UserMailer.welcome_email(self).deliver_now
