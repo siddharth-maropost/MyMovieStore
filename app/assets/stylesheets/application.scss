@@ -10,9 +10,10 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+
  *= require_self
  */
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
@@ -21,4 +22,29 @@
   text-align: center;
   max-width: 500px;
   background-color:  whitesmoke;
+}
+.glyphicon {
+    font-size: 50px;
+}
+ul.horizontal-slide {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+ul.horizontal-slide li[class*="col"] {
+    display: inline-block;
+    float: none;
+
+}
+
+ul.horizontal-slide li[class*="col"]:first-child {
+    margin-left: 0;
+
+}
+
+.thumbnail {
+  max-height: 250px;
 }
