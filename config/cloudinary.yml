@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: siddharthmovistore
+  api_key: '729427619127239'
+  api_secret: GqDLd4nN6GEsEK3buCdTmTzIc8g
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: siddharthmovistore
+  api_key: '729427619127239'
+  api_secret: GqDLd4nN6GEsEK3buCdTmTzIc8g
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: siddharthmovistore
+  api_key: '729427619127239'
+  api_secret: GqDLd4nN6GEsEK3buCdTmTzIc8g
+  enhance_image_tag: true
+  static_image_support: false
