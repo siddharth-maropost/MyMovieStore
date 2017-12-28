@@ -11,6 +11,6 @@ class Movie < ApplicationRecord
   validates :rating, numericality: { less_than_or_equal_to: 10 }
 #search logic
   def self.search(search)
-    where("title LIKE ?", "%#{search}%")
+    where("title like? OR title like? OR title like? OR title like?","%#{search.capitalize}%","%#{search.downcase}%","%#{search.upcase}%","%#{search.titleize}%").order('rating ASC')
   end
 end
