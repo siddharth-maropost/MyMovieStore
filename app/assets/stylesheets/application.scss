@@ -17,7 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:400);
 .divv{
   text-align: center;
   max-width: 500px;
@@ -47,4 +47,22 @@ ul.horizontal-slide li[class*="col"]:first-child {
 
 .thumbnail {
   max-height: 250px;
+}
+
+
+
+
+
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+.normal-column {
+	flex: 0 1 70%;
+	background: linear-gradient(white, #F8F8FF, #DCDCDC, #808080, #2F4F4F, #000000);
+	/* Change Column Order*/
+	/* order: 1; */
 }
