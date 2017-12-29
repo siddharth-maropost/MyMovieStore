@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
-  before_action :authenticate_admin_user!,only: [:create]
+
+  before_action :authenticate_user!
   before_action :set_id, except:[:index, :detail, :create]
   before_action :get_toprated, only:[:index, :detail]
   before_action :get_topviewed, only:[:index, :detail]
@@ -8,6 +9,12 @@ class MoviesController < ApplicationController
     @movies_list = Movie.all.order('rating desc').limit(9)
     @comments = Comment.all
     @limited_comments = @movies.comments.limit(3)
+    debugger
+    var = @movies.view + 1
+    debugger
+    @movies.view = var
+    debugger
+    @movies.save
 
   end
 
@@ -74,7 +81,8 @@ class MoviesController < ApplicationController
   end
 
   def get_topviewed
-    @movies_topviewed = Movie.all.order('rating asc')
+    @movies_topviewed = Movie.all.order('view desc')
   end
+
 
 end
