@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except:[:index, :show]
   before_action :set_id, except:[:index, :detail, :create]
   before_action :get_toprated, only:[:index, :detail]
   before_action :get_topviewed, only:[:index, :detail]
@@ -9,11 +9,8 @@ class MoviesController < ApplicationController
     @movies_list = Movie.all.order('rating desc').limit(9)
     @comments = Comment.all
     @limited_comments = @movies.comments.limit(3)
-    debugger
     var = @movies.view + 1
-    debugger
     @movies.view = var
-    debugger
     @movies.save
 
   end
