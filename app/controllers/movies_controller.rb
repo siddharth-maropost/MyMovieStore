@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 
-  before_action :authenticate_user!, except:[:index, :show]
+  before_action :authenticate_user!, except:[:index, :show, :create, :detail]
   before_action :set_id, except:[:index, :detail, :create]
   before_action :get_toprated, only:[:index, :detail]
   before_action :get_topviewed, only:[:index, :detail]
