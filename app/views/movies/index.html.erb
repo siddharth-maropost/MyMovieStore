@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row" style="    padding-right: 30px;">
+	<!-- <div class="row" style="    padding-right: 30px;">
 		<div class="col-md-12">
 			<div class="carousel slide" id="carousel-917441">
 				<ol class="carousel-indicators">
@@ -41,7 +41,17 @@
 				</div> <a class="left carousel-control" href="#carousel-917441" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a> <a class="right carousel-control" href="#carousel-917441" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
 			</div>
 		</div>
-	</div>
+	</div> -->
+<base href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/wanaka-tree.jpg">
+<div id="carousel">
+  <figure id="spinner">
+	  <%@movies.each do |movie|%>
+		  <img class = "thumbnail"src="<%=movie.image_url%>" >
+		<%end%>
+  </figure>
+</div>
+<span style="float:left" class="ss-icon" onclick="galleryspin('-')">&lt;</span>
+<span style="float:right" class="ss-icon" onclick="galleryspin('')">&gt;</span>
 <br><br><br>
 
 	<label>Top rated</label>

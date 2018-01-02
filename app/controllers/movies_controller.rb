@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
   end
 
   def index
-    @movies = Movie.all.first(3)
+    @movies = Movie.all.order('created_at DESC')
     @movies_toprated = @movies_toprated.limit(6)
     @movies_topviewed = @movies_topviewed.limit(6)
 
