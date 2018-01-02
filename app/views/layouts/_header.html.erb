@@ -15,7 +15,8 @@
           <a href="<%=movies_path%>">HOME</a>
         </li>
       </ul>
-      <%= form_tag(detail_movies_path, :method => "get", id: "search-form", class: "navbar-form navbar-left") do %>
+      <%= form_tag(detail_movies_path(), :method => "get", view: "by_rating", id: "search-form", class: "navbar-form navbar-left") do %>
+      <input id="view" name="view" value="by_rating" type="hidden" />
       <%= text_field_tag :search, params[:search], placeholder: "Search Movies", class: "form-group form-control" %>
       <%= submit_tag "Search", class: "btn btn-default"%>
       <% end %>

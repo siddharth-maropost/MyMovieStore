@@ -20,18 +20,26 @@ class MoviesController < ApplicationController
     @movies_toprated = @movies_toprated.limit(6)
     @movies_topviewed = @movies_topviewed.limit(6)
 
-    @movies_search = Movie.all
-    if params[:search]
-      @movies_search = Movie.search(params[:search]).order("created_at DESC")
-    else
-      @movies_search = Movie.all.order('created_at DESC')
-    end
+    # @movies_search = Movie.all
+    # if params[:search]
+    #   @movies_search = Movie.search(params[:search]).order("created_at DESC")
+    # else
+    #   @movies_search = Movie.all.order('created_at DESC')
+    # end
   end
   def detail
 
-    @view = params[:view]
-    @movies_toprated = @movies_toprated.search(params[:search])
-    @movies_topviewed = @movies_topviewed.search(params[:search])
+
+    if params[:search]
+      @view = params[:view]
+      @movies_toprated = @movies_toprated.search(params[:search])
+      @movies_topviewed = @movies_topviewed.search(params[:search])
+
+    else
+      @view = params[:view]
+      @movies_toprated = @movies_toprated
+      @movies_topviewed = @movies_topviewed
+    end
 
   end
 

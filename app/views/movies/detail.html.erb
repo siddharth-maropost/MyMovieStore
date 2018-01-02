@@ -1,7 +1,6 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-
 			<div class="tabbable" id="tabs-989910">
 				<ul class="nav nav-tabs">
 					<li class="<%=isactive_rating?(@view)%>">
@@ -12,7 +11,7 @@
 					</li>
 				</ul>
 				<div class="tab-content <%=isactive_rating?(@view)%>">
-					<div class="tab-pane active" id="panel-927743">
+					<div class="tab-pane <%=isactive_rating?(@view)%>" id="panel-927743">
 						<%=render partial: 'detail_movie', locals: {movies: @movies_toprated} %>
 					</div>
 					<div class="tab-pane <%=isactive_views?(@view)%>" id="panel-676337">
