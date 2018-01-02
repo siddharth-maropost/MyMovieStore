@@ -2,9 +2,15 @@
   <% @limited_comments.each do |comment|%>
     <div class="col-md-12">
       <%if movie.id == comment.movie_id %>
-      <span><i class="glyphicon glyphicon-user" style="    font-size: large;"></i>
-      <strong><%=User.find(comment.user_id).name.titleize%></strong></span><br>
-      <p class="col-sm-offset-1"><%=comment.body%></p><hr>
+      <div class = "col-sm-2">
+        <img class ="thumbnail pull-right" style="max-width: 52px;" src="<%=User.find(comment.user_id).image_url%>"/>
+      </div>
+      <div class ="col-sm-10">
+        <strong><%=User.find(comment.user_id).name.titleize%></strong><br>
+        <p><%=comment.body%></p><hr>
+      </div>
+
+
       <%end%>
     </div>
 

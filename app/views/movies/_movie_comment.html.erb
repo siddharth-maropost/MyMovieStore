@@ -1,10 +1,10 @@
-<div class = "row col-sm-12">
+<div class = "row col-sm-12 ">
   <br><br>
 
-  <div class="col-sm-2 "><%if user_signed_in? %><img class ="thumbnail pull-right" style="max-width: 52px;" src="<%=current_user.image_url%>"/><%else%>
+  <div class="col-sm-2 col-xs-2"><%if user_signed_in? %><img class ="thumbnail pull-right" style="max-width: 52px;" src="<%=current_user.image_url%>"/><%else%><span class="glyphicon glyphicon-user"></span>
     <%end%>
   </div>
-  <div class="col-sm-10">
+  <div class="col-sm-10 col-xs-10">
 
     <%= form_for([@movies,@movies.comments.build]) do |f| %>
 

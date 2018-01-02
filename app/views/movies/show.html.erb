@@ -1,92 +1,10 @@
-<!-- <div class="container">
-<div class ="row">
-  <%=render partial: "movie_detail", locals: {movie: @movies}%>
-</div>
-<br><br><br>
-<div class="row">
-  <div class="col-sm-6 "style="background-color: ghostwhite;">
-		<h1>comments</h1>
-    <%=render partial: "comments/show", locals: {movie: @movies}%>
-    <div class = "pull-right">
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  More Comments
-</button>
-    </div>
-  </div>
-  <div class="col-sm-6">
-    <ul class="list-group">
-      <h1>Top Rated of same genre </h1>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-6"><strong>TITLE</strong></div>
-          <div class="col-sm-6"><strong>GENRE</strong></div>
-        </div>
-      </li>
-      <%@movies_list.each do |movie|%>
-      <%if movie.genre == @movies.genre%>
-      <li class="list-group-item">
-        <div class="row">
-          <div class="col-sm-6"><%=movie.title%></div>
-          <div class="col-sm-6"><%=movie.genre%></div>
-
-        </div>
-      </li>
-      <%end%>
-      <%end%>
-    </ul>
-  </div>
-</div>
-<div class = "row col-sm-6">
-      <%=render 'movie_comment'%>
-
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">All comments</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" style="padding: 0px;">
-        <% @comments.each do |comment|%>
-
-          <div class = "col-sm-6">
-            <i class="glyphicon glyphicon-user"></i><hr>
-          </div>
-
-          <div class = "col-sm-6 pull-left">
-            <%if @movies.id == comment.movie_id %>
-            <h5>  <strong><%=User.find(comment.user_id).name%></strong></h5>
-          </div>
-            <div class= "col-sm-6"><%=comment.body%><hr></div>
-            <%end%>
-
-
-
-        <%end%>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-</div> -->
-
-
 
   <div class="row">
     <div class="col-sm-12">
     <%=render partial: "movie_detail", locals: {movie: @movies}%>
   </div>
   </div>
-
+<br><br>
 
 
 
@@ -94,7 +12,7 @@
     <div class="col-md-12">
         <div class="col-md-6">
           <div class="col-md-12 " style="border: inset;">
-          <h1>comments</h1>
+          <h3>comments(<%=@movies.comments.count%>)</h3>
           <%=render partial: "comments/show", locals: {movie: @movies}%>
 <br>
             <%if @movies.comments.count > 3 %>
@@ -116,16 +34,20 @@
             <h1>Top Rated of same genre </h1>
             <li class="list-group-item">
               <div class="row">
-                <div class="col-sm-6"><strong>TITLE</strong></div>
-                <div class="col-sm-6"><strong>GENRE</strong></div>
+                <div class="col-sm-2 col-xs-2"><strong>S.NO</strong></div>
+                <div class="col-sm-5 col-xs-5"><strong>TITLE</strong></div>
+                <div class="col-sm-5 col-xs-5"><strong>GENRE</strong></div>
               </div>
             </li>
+            <% i = 0 %>
             <%@movies_list.each do |movie|%>
             <%if movie.genre == @movies.genre%>
+            <%i = i + 1%>
             <li class="list-group-item">
               <div class="row">
-                <div class="col-sm-6"><%=movie.title%></div>
-                <div class="col-sm-6"><%=movie.genre%></div>
+                <div class="col-sm-2 col-xs-2"><%=i%></div>
+                <div class="col-sm-5 col-xs-5"><%=movie.title%></div>
+                <div class="col-sm-5 col-xs-5"><%=movie.genre%></div>
 
               </div>
             </li>

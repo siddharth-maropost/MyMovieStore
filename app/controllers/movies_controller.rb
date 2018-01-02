@@ -51,13 +51,19 @@ class MoviesController < ApplicationController
   #   @movies = Movie.new
   # end
   def create
+    #check for redundancy of if movie exist or not all movie variable to pass in other service call
+    @mv_exist = Movie.all
 
     if params[:view] == "automatic"
-      @mv = OtherServiceCall.new.api_call(params[:movie][:title])
-      if @mv == true
-        redirect_to  "#{ Rails.application.secrets.url}/admin/movies", notice: "movie successfully saved"
+      if @mv_exist.find_by_title(params[:movie][:title])
+        redirect_to new_admin_movie_path(view: params[:view]), notice: "movie already exist !!"
       else
-        redirect_to new_admin_movie_path(view: params[:view]), alert: "movie match failed, please verify"
+        @mv = OtherServiceCall.new.api_call(params[:movie][:title])
+        if @mv == true
+          redirect_to  "#{ Rails.application.secrets.url}/admin/movies", notice: "movie successfully saved"
+        else
+          redirect_to new_admin_movie_path(view: params[:view]), alert: "movie match failed, please verify"
+        end
       end
     else
       @movie = Movie.new(allowed_params)
