@@ -5,5 +5,10 @@ class UserMailer < ApplicationMailer
 
     mail(to: @user.email, subject: 'Welcome to Movie Store')
   end
+  def edit_email(user)
+    @user = user
+
+    mail(to: @user.email, subject: 'Your profile is updated')
+  end
 
 end

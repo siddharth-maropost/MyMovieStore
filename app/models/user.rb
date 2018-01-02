@@ -17,4 +17,9 @@ class User < ApplicationRecord
     UserMailer.welcome_email(self).deliver_now
   end
 
+  # after_update :send_edit_mail
+  # def send_edit_mail
+  #   UserMailer.edit_email(self).deliver_now
+  # end
+
 end
