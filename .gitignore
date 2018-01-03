@@ -24,3 +24,7 @@
 
 # Ignore application configuration
 /config/application.yml
+server.crt
+server.csr
+server.key
+server.pass.key
