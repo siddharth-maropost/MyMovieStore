@@ -6,8 +6,8 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '70a0e5a0df25d784f0b5413da998c81c1f2dee323046a0091d119e7cf1f910256adf3fa9f5a7c17514974b15a1ad02d9168eb97f09f3f8dbe77682ca905ac491'
-
+  #config.secret_key = '70a0e5a0df25d784f0b5413da998c81c1f2dee323046a0091d119e7cf1f910256adf3fa9f5a7c17514974b15a1ad02d9168eb97f09f3f8dbe77682ca905ac491'
+  config.secret_key = '988eb522d042c5774fb6f0bc6ec00e8337816dc6f3060a07a74478bc9a6dab2959a9a2b3ffb85a7ee4ae44fa02387e879984a7e23ecd0673de6f8950ceb561dd'
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -251,6 +251,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :google_oauth2,  ENV['GOOGLE_CLIENT_ID'],  ENV['GOOGLE_CLIENT_SECRET']
+  OmniAuth.config.full_host = Rails.env.production? ? "#{ Rails.application.secrets.url}" : "#{ Rails.application.secrets.url}"
+
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
