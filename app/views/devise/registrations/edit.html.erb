@@ -1,3 +1,19 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var
+              $login= $('#modal')
+              ,tl = new TimelineLite({onComplete:restart});
+                  tl.fromTo($login,1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1, ease:Elastic.easeInOut},'sync');
+              tl.play();
+          function restart(){
+            tl.stop();
+            // tl.restart();
+          }
+    });
+    </script>
+
+<div id="modal">
 <div class = "divv" style= "margin: 0 auto">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -48,4 +64,5 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-danger"%></p>
 
 <%= link_to "Back", :back %>
+</div>
 </div>

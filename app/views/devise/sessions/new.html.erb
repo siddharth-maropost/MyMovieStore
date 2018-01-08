@@ -1,4 +1,22 @@
-<br><br><br><br><div class = "divv" style= "margin: 0 auto">
+<br><br><br><br>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      var
+              $login= $('#modal')
+              ,tl = new TimelineLite({onComplete:restart});
+                  tl.fromTo($login,1,{scale:0,autoAlpha:0},{scale:1,autoAlpha:1, ease:Elastic.easeInOut},'sync');
+              tl.play();
+          function restart(){
+            tl.stop();
+            // tl.restart();
+          }
+    });
+    </script>
+<div id ="modal">
+  <div class = "divv" style= "margin: 0 auto">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -23,4 +41,5 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
 </div>
