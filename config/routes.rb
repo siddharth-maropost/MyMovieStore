@@ -1,4 +1,24 @@
+require 'api_constraints'
 Rails.application.routes.draw do
+
+  namespace :api, defaults: {format: 'json'} do
+    #/api...Api::
+    scope module: :v1, constraints: ApiConstraints.new(version: 1) do
+      get '/search_movie_by_title', to: "movies#search_movie_by_title"
+      get '/movies_all', to: "movies#movies_all"
+      get '/movies_by_id', to: "movies#movies_by_id"
+
+    end
+    scope module: :v2, constraints: ApiConstraints.new(version: 2, default: true) do
+      get '/search_movie_by_title', to: "movies#search_movie_by_title"
+      get '/movies_all', to: "movies#movies_all"
+      get '/movies_by_id', to: "movies#movies_by_id"
+
+    end
+  end
+
+
+
   match '/admin/movies' => 'movies#create', via: :post
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -11,6 +31,7 @@ Rails.application.routes.draw do
     end
   end
   root to: "movies#index"
+
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

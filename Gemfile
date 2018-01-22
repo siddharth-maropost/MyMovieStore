@@ -18,6 +18,7 @@ gem 'puma', '~> 3.7'
 gem 'figaro'
 gem 'jquery-ui-rails'
 # Use SCSS for stylesheets
+gem 'rubocop', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'cloudinary'
 gem 'omniauth-facebook'

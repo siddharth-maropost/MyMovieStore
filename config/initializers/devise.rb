@@ -252,7 +252,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  config.omniauth :google_oauth2,  Rails.application.secrets.google_client_id,  Rails.application.secrets.google_client_secret
+  config.omniauth :google_oauth2,  Rails.application.secrets.google_client_id,  Rails.application.secrets.google_client_secret, skip_jwt: true
   OmniAuth.config.full_host = Rails.env.production? ? "#{ Rails.application.secrets.gurl}" : "#{ Rails.application.secrets.url}"
 
   # ==> Warden configuration
