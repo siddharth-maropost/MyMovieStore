@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get '/movies_all', to: "movies#movies_all"
       get '/movies_by_id', to: "movies#movies_by_id"
 
+
     end
   end
 
@@ -31,7 +32,8 @@ Rails.application.routes.draw do
     end
   end
   root to: "movies#index"
-
+  get '/api_key', to: "movies#api_key"
+  get '/generate_api_key', to: "movies#generate_api_key"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

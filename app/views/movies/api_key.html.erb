@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-sm-6 text-center">
+    <%if @key_record%>
+    <%else%>
+    <%= button_to "generate unique key", generate_api_key_path,
+                                       :id => "generate-btn", :class => "btn btn-lg btn-success", :method => :get %>
+    <%end%>
+  </div>
+  <div class="col-sm-6">
+    <% if @key_record %>
+    your access token is: <%=@access_token%>
+    <% else%>
+    generate your access token
+    <%end%>
+  </div>
+</div>
+<br>

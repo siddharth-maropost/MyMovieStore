@@ -6,7 +6,10 @@ class CommentsController < ApplicationController
     @comment.movie_id = params[:movie_id]
     @movie = Movie.find(params[:movie_id])
     if @comment.save
-      CommentMailer.comment_mail(current_user, @movie, @comment).deliver_now
+      Thread.new{
+        debugger
+        CommentMailer.comment_mail(current_user, @movie, @comment).deliver_now
+      }
       redirect_to movie_path(params[:movie_id]),notice: "comennt added succesfully"
     else
       redirect_to movie_path(params[:movie_id]),alert: "comment cannot be empty !"

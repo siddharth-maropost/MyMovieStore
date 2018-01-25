@@ -6,13 +6,13 @@
 
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
          <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-      </button> <a class="navbar-brand" href="<%=movies_path%>">MOVIE STORE</a>
+      </button>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active">
-          <a href="<%=movies_path%>">HOME</a>
+          <a href="<%=movies_path%>">MOVIE STORE</a>
         </li>
       </ul>
       <%= form_tag(detail_movies_path(), :method => "get", view: "by_rating", id: "search-form", class: "navbar-form navbar-left") do %>
@@ -20,6 +20,12 @@
       <%= text_field_tag :search, params[:search], placeholder: "Search Movies", class: "form-group form-control" %>
       <%= submit_tag "Search", class: "btn btn-default"%>
       <% end %>
+
+      <ul class="nav navbar-nav">
+        <li class="active">
+          <a href="<%=api_key_path%>">API KEY</a>
+        </li>
+      </ul>
 
       <ul class="nav navbar-nav pull-right">
 						<li class="active">

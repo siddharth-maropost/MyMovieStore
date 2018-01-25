@@ -9,6 +9,7 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :movies, through: :comments
+  has_one :apikey
 
   validates_presence_of :name
 

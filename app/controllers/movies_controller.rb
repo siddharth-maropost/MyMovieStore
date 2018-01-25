@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   before_action :authenticate_user!, except:[:index, :show, :create, :detail]
-  before_action :set_id, except:[:index, :detail, :create]
+  before_action :set_id, except:[:index, :detail, :create, :api_key, :generate_api_key]
   before_action :get_toprated, only:[:index, :detail]
   before_action :get_topviewed, only:[:index, :detail]
 
@@ -74,6 +74,38 @@ class MoviesController < ApplicationController
         redirect_to new_admin_movie_path, alert: "make sure you have entered all the details"
       end
     end
+  end
+
+  def api_key
+    if params[:id]
+      @key_record = ApiKey.find_by_id(params[:id])
+      @access_token = @key_record.access_token
+    else
+      @key_record = ApiKey.find_by_user_id(current_user.id)
+      if @key_record
+        @access_token = @key_record.access_token
+      else
+      end
+    end
+
+  end
+
+  def generate_api_key
+    @api_exist = ApiKey.find_by_user_id(current_user.id)
+    if @api_exist && ApiKey.find_by_user_id(current_user.id)
+      redirect_to api_key_path(id: @api_exist.id)
+    else
+      @unique_key = ApiKey.new
+      @unique_key.user_id = current_user.id
+      if @unique_key.save
+        Thread.new{
+          ApiMailer.access_token_mail(current_user, @unique_key.access_token).deliver_now
+        }
+        redirect_to api_key_path(id: @unique_key.id)
+      end
+    end
+
+
   end
 
   private
