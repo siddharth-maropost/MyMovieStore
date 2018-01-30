@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 #gem devise
+gem 'chartjs-ror'
+gem 'chart-js-rails'
 gem 'devise'
 gem 'activeadmin'
 gem "font-awesome-rails"

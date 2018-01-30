@@ -34,6 +34,7 @@ Rails.application.routes.draw do
   root to: "movies#index"
   get '/api_key', to: "movies#api_key"
   get '/generate_api_key', to: "movies#generate_api_key"
+  get '/chart', to: "movies#chart"
 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

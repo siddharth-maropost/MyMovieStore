@@ -14,8 +14,19 @@
 //= require turbolinks
 
 //= require jquery
-
+//= require Chart.min
 //= require bootstrap-sprockets
+//= require Chart.min
+
+
+
+
+
+
+
+
+
+
 
 var angle = 0;
 function galleryspin(sign) {

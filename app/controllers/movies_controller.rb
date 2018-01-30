@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   before_action :authenticate_user!, except:[:index, :show, :create, :detail]
-  before_action :set_id, except:[:index, :detail, :create, :api_key, :generate_api_key]
+  before_action :set_id, except:[:index, :detail, :create, :api_key, :generate_api_key, :chart]
   before_action :get_toprated, only:[:index, :detail]
   before_action :get_topviewed, only:[:index, :detail]
 
@@ -19,6 +19,9 @@ class MoviesController < ApplicationController
     @movies = Movie.all.order('created_at DESC')
     @movies_toprated = @movies_toprated.limit(6)
     @movies_topviewed = @movies_topviewed.limit(6)
+    @top_views = Movie.all.order('view DESC').limit(6)
+
+
 
     # @movies_search = Movie.all
     # if params[:search]
@@ -105,6 +108,11 @@ class MoviesController < ApplicationController
       end
     end
 
+
+  end
+
+  def chart
+    @top_views = Movie.all.order('view DESC').limit(6)
 
   end
 
