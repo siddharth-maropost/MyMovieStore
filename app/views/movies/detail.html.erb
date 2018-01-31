@@ -12,9 +12,11 @@
 				</ul>
 				<div class="tab-content <%=isactive_rating?(@view)%>">
 					<div class="tab-pane <%=isactive_rating?(@view)%>" id="panel-927743">
+						<%= paginate @movies_toprated%><br>
 						<%=render partial: 'detail_movie', locals: {movies: @movies_toprated} %>
 					</div>
 					<div class="tab-pane <%=isactive_views?(@view)%>" id="panel-676337">
+						<%= paginate @movies_topviewed%><br>
 						<%=render partial: 'detail_movie', locals: {movies: @movies_topviewed} %>
 					</div>
 				</div>

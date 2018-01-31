@@ -40,8 +40,8 @@ class MoviesController < ApplicationController
 
     else
       @view = params[:view]
-      @movies_toprated = @movies_toprated
-      @movies_topviewed = @movies_topviewed
+      @movies_toprated = @movies_toprated.page(params[:page]).per(8)
+      @movies_topviewed = @movies_topviewed.page(params[:page]).per(8)
     end
 
   end

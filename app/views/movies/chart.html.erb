@@ -1,8 +1,8 @@
-<canvas id="myChart" width="400" height="400"></canvas>
+<div class="text-center"><canvas id="myChart" width="200px" height="200px"></canvas></div>
 <script>
 var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
-    type: 'pie',
+    type: 'bar',
     data: {
 
       <%@mm  = Array.new%>
