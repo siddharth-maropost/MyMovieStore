@@ -22,6 +22,7 @@ gem 'rubocop', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'cloudinary'
 gem 'kaminari'
+gem 'haml'
 gem 'omniauth-facebook'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

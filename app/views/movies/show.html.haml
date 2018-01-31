@@ -1,0 +1,64 @@
+.row
+  .col-sm-12
+    = render partial: "movie_detail", locals: {movie: @movies}
+%br/
+%br/
+.row
+  .col-md-12
+    .col-md-6
+      .col-md-12{:style => "border: inset;"}
+        %h3
+          comments(#{@movies.comments.count})
+        = render partial: "comments/show", locals: {movie: @movies}
+        %br/
+        - if @movies.comments.count > 3
+          %button.btn.btn-primary.pull-right{"data-target" => "#exampleModal", "data-toggle" => "modal", :type => "button"}
+            More Comments
+        - else
+      %br/
+      %br/
+      %br/
+      %br/
+      %br/
+      = render 'movie_comment'
+    .col-md-6
+      %ul.list-group
+        %h1 Top Rated of same genre
+        %li.list-group-item
+          .row
+            .col-sm-2.col-xs-2
+              %strong S.NO
+            .col-sm-5.col-xs-5
+              %strong TITLE
+            .col-sm-5.col-xs-5
+              %strong GENRE
+        - i = 0
+        - @movies_list.each do |movie|
+          - if movie.genre == @movies.genre
+            - i = i + 1
+            %li.list-group-item
+              .row
+                .col-sm-2.col-xs-2= i
+                .col-sm-5.col-xs-5= movie.title
+                .col-sm-5.col-xs-5= movie.genre
+#exampleModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title All comments
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body{:style => "padding: 0px;"}
+        - @comments.each do |comment|
+          .row
+            .col-sm-12
+              - if @movies.id == comment.movie_id
+                .col-sm-3
+                  %h5
+                    %strong= User.find(comment.user_id).name.titleize
+                  %hr/
+                .col-sm-9
+                  %div{:style => "max-height:50px;"}= comment.body
+                  %hr/
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
